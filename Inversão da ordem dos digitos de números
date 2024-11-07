@@ -1,0 +1,13 @@
+Fazer um programa que leia um valor e inverta a ordem dos dígitos desse número informado.
+<br><hr>
+<script>
+var N = Number(prompt("Informe um valor inteiro e positivo."));
+var inv = 0;
+document.write("Valor informado: " +N+"<br>");
+while (N > 0){
+	var R = N % 10;
+	inv = inv * 10 + R;
+	N = parseInt(N/10); // N = Math.floor(N/10); N = Math.trunc(N/10);
+}
+document.write("Valor invertido: "+ inv);
+</script>
