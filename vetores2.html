@@ -1,0 +1,24 @@
+Escreva um programa que leia um vetor de 50 posições e um valor a ser buscado no vetor.
+O programa deve informar se o valor pertence ao vetor e sua posição, ou não pertence 
+ao vetor.
+<br><hr>
+<script>
+var V = new Array(50);
+var valor, i, pos;
+pos = -1;
+for (i = 0; i < 50; i++){
+	//V[i] = Number(prompt("Informe o valor da posição " + i));
+	V[i] = Math.floor(Math.random()* 50);
+}
+document.write("Vetor armazenado: " + V + "<br>");
+valor = Number(prompt("Informe o valor a ser procurado no vetor V:"));
+for (i = 0; i < 50; i ++){
+	if (V[i] == valor){
+		pos = i;
+		document.write("O valor " + valor + " está na posição " + pos + " do vetor.<br>");
+	}
+}
+if (pos == -1){
+	document.write("O valor " + valor +" não se encontra dentro do vetor.");
+}
+</script>
