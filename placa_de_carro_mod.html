@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificação de Placa de Carro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Identificação de Placa de Carro</h2>
+    <label for="placa">Digite a placa do veículo (Exemplo: ABC1234 ou ABC1D34):</label>
+    <input type="text" id="placa" placeholder="Exemplo: ABC1234">
+    <button onclick="identificarPlaca()">Identificar</button>
+
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    // Mapeamento dos prefixos de placa para os estados
+    const prefixos = {
+        'Acre': [
+            'MZN', 'NAG', 'NXR', 'NXT', 'OVG', 'OXP', 'QLU', 'QLZ', 'QWM', 'QWQ'
+        ],
+        'Amazonas': [
+            'JWF', 'JXY', 'NOI', 'NPB', 'OAA', 'OAO', 'OXM', 'OXM', 'PHA', 'PHZ', 'QZA', 'QZZ'
+        ],
+        'Rondônia': [
+            'NBB', 'NEH', 'OHL', 'OHW', 'QRA', 'QRA', 'QTA', 'QTJ', 'RSU', 'RSZ'
+        ]
+    };
+
+    // Função para validar a placa
+    function validarPlaca(placa) {
+        // A placa precisa ter 7 caracteres e estar no formato correto
+        return /^[A-Z]{3}[A-Z0-9]{4}$/.test(placa);
+    }
+
+    // Função para identificar o estado com base no prefixo
+    function identificarEstado(prefixo) {
+        for (const estado in prefixos) {
+            if (prefixos[estado].includes(prefixo)) {
+                return estado;
+            }
+        }
+        return "Estado não identificado";
+    }
+
+    // Função principal para identificar a placa
+    function identificarPlaca() {
+        const placa = document.getElementById('placa').value.toUpperCase();  // Converter para maiúsculas
+        const resultDiv = document.getElementById('result');
+        
+        // Validar a placa
+        if (!validarPlaca(placa)) {
+            resultDiv.innerHTML = "<span style='color: red;'>Placa inválida! A placa deve ter 7 caracteres no formato ABC1234 ou ABC1D34.</span>";
+            return;
+        }
+
+        // Obter o prefixo da placa (primeiros 3 caracteres)
+        const prefixo = placa.substring(0, 3);
+        const estado = identificarEstado(prefixo);
+
+        // Exibir o resultado
+        resultDiv.innerHTML = `<strong>Placa:</strong> ${placa} <br><strong>Estado:</strong> ${estado}`;
+    }
+</script>
+
+</body>
+</html>
