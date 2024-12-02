@@ -1,0 +1,40 @@
+<script>
+var V = new Array (50);
+var valor, i, pos;
+pos = -1;
+
+for(i = 0; i < 50; i++){
+	//V[i] = Number(prompt("Informe o valor da posicao" + i));
+	V[i] = Math.floor(Math.random()*50);
+}
+document.write("Vetor amarzenado " +V+ "<br>");
+valor = Number(prompt("Informe 
+
+o valor a ser procurado no vetor V:"));
+for(i = 0; i < 50; i++){
+	if(V[i] == valor){
+		pos = i;
+		document.write("O valor " + valor + " está na posição " +pos+ "do vetor.<br>");
+	}
+
+}
+if(pos == -1){
+	document.write("O valor " + valor + " o valor não se encontra no vetor.");
+}
+
+</script>
+<br>
+var N = new Array(50);
+var i, c
+
+for (i = 0; i < 50; i++){
+	//N[i] = Number(prompt("Digite o valores depositado no vetor "+i))
+	N[i] = Math.floor(Math.random()*50);
+if(N <= 50){
+	document.write("O valor esta dentro do vetor "+ N + "<br>");
+} else {
+	document.write("O valor nao esta dentro do vetor "+ N + "<br>");
+}
+}
+</br>
+	

@@ -1,0 +1,20 @@
+<script>
+var M = new Array(5);
+var C, L;
+for(L = 0; L < 5; L++){
+	M[L] = new Array(4);
+}
+
+for(L = 0; L < 5; L++){
+	for(C = 0; C < 4; C++){
+M[L][C] = Number(prompt("Informe os valores da coluna "+ C + "e da linha "+ L));
+}
+}
+
+for(L = 0; L < 5; L++){
+	for(C = 0; C < 4; C++){
+		document.write(" "+ C + " " + L);
+}
+document.write("<br>")
+}
+</script>

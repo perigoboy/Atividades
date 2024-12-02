@@ -1,0 +1,47 @@
+<script>
+//criação da matriz M - cria-se o vetor e para cada parte do vetor, cria-se um novo vetor
+var M = new Array (4);
+var L, C, V;
+V = 0
+for(L = 0; L < 4; L++){
+	M[L] = new Array(3);
+}
+
+//Alimentar a matriz - elemento da matriz - M[L][C]
+for(L = 0; L < 4; L++){
+	for(C = 0; C < 3; C++)
+		M[L][C] = Number(prompt("Informe o elemento da linha " + L + "e coluna "+C));
+}
+
+//Apresentação da matriz no formato algébrico
+for(L = 0; L < 4; L++){
+	for(C = 0; C < 3; C++){
+		document.write(" " + M[L][C]+ " ");
+	}
+	document.write("<br>");
+}
+//soma dos elementos de cada linha
+var soma;
+for(L = 0; L < 4; L++){
+		soma = 0;
+			for(C = 0; C < 3; C++){
+				soma = soma + M[L][C];			
+		}
+		document.write("Soma dos elementos da linha "+L+ " = " +soma+"<br>");
+	}
+		
+//soma dos elementos de cada coluna
+document.write("<br>"); //separar
+for(C = 0; C < 3; C++){
+	soma = 0
+for(L = 0; L < 4; L++){
+	soma = soma + M[L][C];
+}
+document.write("Soma dos elementos da linha "+C+ " = " +soma+"<br>");
+}
+
+
+// No console, ("Apresentando a matriz armazenada:");
+console.log("Apresentação da matriz: ");
+console.table(M);
+</script>

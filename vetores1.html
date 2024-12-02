@@ -1,0 +1,46 @@
+<script>
+
+var N = new Array(30); // O vetor tem 30 espaços
+var P = [], I = []; // dois vetores
+var n , p = 0, i = 0 // variaveis dentro dos vetores
+for (n = 0; n < 30; n++){
+	N[n] = Number(prompt("Informe o valor da posição" + n));
+	//N[n] = Math.floor(Math.random()*15);
+	if(N[n] % 2 == 0){ // se o resto de for igual a 0, logicamente é par; então...
+	P[p] = N[n];
+p++
+} else  { // else = 'SE NÃO'
+	I[i] = N[n];
+i++
+}
+
+}
+document.write("Vetor lido "+N+ "<br>");
+document.write("Vetores pares " +P+ "<br>");
+document.write("Vetores impares " +I);
+// apresentação dos valores
+
+</script>
+meu codico errado para analise: <br>
+
+var A = [];
+var P = [];
+var I = [];
+var B = new Array(30);
+var i;
+
+for(i = 0; i < 30; i++){
+	B[i] = Number(prompt("Dige um numero!! + i"));
+
+if(B[i] % 2 == 0){
+
+document.write(B[i]);
+
+} else {
+
+document.write(B[i]);
+
+}
+
+
+
