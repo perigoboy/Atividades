@@ -1,0 +1,46 @@
+<script>
+var E = new Array(4);
+var P, L;
+for(P = 0; P < 4; P++){
+	E[P] = new Array (5);
+	for (L = 0; L < 5; L++){
+		E[P][L] = Math.floor(Math.random()*20);
+	}
+}
+
+console.log("Matriz de estoque da empresa");
+console.table(E);
+var menor, loja, produto;
+for (L = 0; L < 5; L++){
+	menor = E[0][L];
+	produto = 0;
+	for (P = 0; P < 4; P++){
+		if(menor > E[P][L]){
+		menor = E[P][L]
+		produto = P;
+		}
+	}
+	document.write("Para a loja "+L+" e o menor estoque é do prduto "+produto+" com "+menor+" unidades.<br>")
+}
+var soma;
+for(L = 0; L < 5; L++){
+	soma = 0;
+	for(P = 0; P < 4; P++){
+		soma = soma + E[P][L];
+}
+	document.write("A loja "+L+" tem o estoque total de "+soma+" unidades.<br>");
+}
+var maior = 0;
+produto = 0;
+for (P = 0; P < 4; P++){
+	soma = 0;
+	for (L = 0; L < 5; L++){
+		soma = soma + E[P][L];
+}
+	if(maior < soma){
+		maior = soma;
+		produto = P;
+	}
+	}
+	document.write("O produto com maior estoque total é o produto "+produto+" com "+maior+" unidades.")
+</script>
